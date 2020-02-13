@@ -35,13 +35,14 @@ class TextCategorizeTest {
         TCcategories.put("f", Collections.singletonList("fast"));
         TCcategories.put("c", Collections.singletonList("cat"));
         TCcategories.put("s", Collections.singletonList("slow"));
-        assertEquals(TCcategories, tc.categories());
+       assertEquals(TCcategories, tc.categories());
     }
 
     @org.junit.jupiter.api.Test
     void TestgetCategories() {
-        ArrayList<String>[] keys = new ArrayList<String> ('a', 'r', 's', 'c', 'd', 'f');
-        assertEquals(keys, tc.getCategories());
+        String[] keys = {"a", "r", "c", "s", "d", "f"};
+        String[] real = tc.getCategories().toArray(new String[0]);
+        assertArrayEquals(keys, real);
     }
 
     @org.junit.jupiter.api.Test
@@ -52,6 +53,7 @@ class TextCategorizeTest {
     @org.junit.jupiter.api.Test
     void TestgetWordsFor() {
         String[] ans = {"dog"};
-        assertEquals(ans, tc.getWordsFor("d"));
+        String [] real = tc.getWordsFor("d").toArray(new String[0]);
+        assertArrayEquals(ans, real);
     }
 }
